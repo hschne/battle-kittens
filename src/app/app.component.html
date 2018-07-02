@@ -3,10 +3,10 @@
   <h1>
     Welcome to {{ title }}!
   </h1>
-  <h2>Kittenlist:</h2>
-  <ul *ngFor="let kitten of kittens">
-    <li>Name: {{kitten.name}}, Battle Score: {{ kitten.battlescore}}</li>
-  </ul>
+  <nav>
+    <a routerLink="/kittens">Kittens</a>
+  </nav>
+  <router-outlet></router-outlet>
 </div>
 
 

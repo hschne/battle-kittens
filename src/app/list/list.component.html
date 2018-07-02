@@ -1,0 +1,4 @@
+<h2>Kittenlist Component</h2>
+<ul *ngFor="let kitten of kittens">
+  <a routerLink="/detail/{{kitten.id}}">Name: {{kitten.name}}, Battle Score: {{ kitten.battlescore}}</a>
+</ul>
