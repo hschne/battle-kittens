@@ -14,7 +14,19 @@ export class KittenService {
     return of(KITTENS);
   }
 
-  public get(id: number): Observable<Kitten> {
-    return of({id: id, name: 'Somename', cuteness: 15, battlescore: 5.5, strength: 12, speed: 45});
+  public update(kitten: Kitten): void {
+    const item = KITTENS.find(function (obj) {
+      return obj.id === kitten.id;
+    });
+    const index = KITTENS.indexOf(item);
+    KITTENS[index] = kitten;
   }
+
+  public get(id: number): Observable<Kitten> {
+    return of(KITTENS.find(function (obj) {
+      return obj.id === id;
+    }));
+  }
+
+
 }

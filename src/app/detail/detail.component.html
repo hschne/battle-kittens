@@ -1,5 +1,41 @@
-<h1>{{kitten.id}}</h1>
-<h2>{{kitten.name}}</h2>
+<div class="container">
+  <h2>Edit Kitten</h2>
+  <form (ngSubmit)="onSubmit()" [formGroup]="kittenForm">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" formControlName="name" id="name" [(ngModel)]="kitten.name">
+      <div [hidden]="name.valid || name.pristine"
+           class="alert alert-danger">
+        Name is required
+      </div>
+    </div>
 
 
-<button (click)="goBack()">go back</button>
+    <div class="form-group">
+      <label for="speed">Speed</label>
+      <input type="number" class="form-control" formControlName="speed" id="speed" name="speed"
+             [(ngModel)]="kitten.speed">
+      <div [hidden]="kittenForm.get('speed').valid"
+           class="alert alert-danger">
+        Speed must be between 0 and 100
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="strength">Strength</label>
+      <input type="number" class="form-control" formControlName="strength" id="strength"
+             name="strength" [(ngModel)]="kitten.strength">>
+    </div>
+
+    <div class="form-group">
+      <label for="cuteness">Cuteness</label>
+      <input type="number" class="form-control" formControlName="cuteness" id="cuteness" name="cuteness"
+             [(ngModel)]="kitten.cuteness">>
+    </div>
+    <p>Battlescore: {{kitten.battlescore}}</p>
+    <button type="submit" class="btn btn-success" [disabled]="!kittenForm.valid">Submit</button>
+
+  </form>
+</div>
+<h1>{{kitten.name}}</h1>
+<button class="btn btn-default" (click)="goBack()">go back</button>

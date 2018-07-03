@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Kitten} from './kitten';
 import {KittenService} from './kitten.service';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -17,6 +18,6 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.kittens = this.kittenService.list();
+    this.kittenService.list().subscribe(kittens => this.kittens = kittens);
   }
 }
