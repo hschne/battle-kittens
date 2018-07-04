@@ -7,11 +7,7 @@
       <div *ngIf="kittenName.invalid && (kittenName.dirty || kittenName.touched)"
            class="alert alert-danger">
         <div *ngIf="kittenName.errors.required">
-          Speed is required.
-        </div>
-
-        <div *ngIf="kittenName.errors.min || speed.errors.max">
-          Speed must be between 0 and 100.
+          Name is required.
         </div>
       </div>
     </div>
@@ -61,11 +57,8 @@
         </div>
       </div>
     </div>
-    <p>Battlescore: {{kitten.battlescore}}</p>
-    <button type="submit" class="btn btn-success" [disabled]="!kittenForm.valid">Submit</button>
-
+    <p>Battlescore: {{battlescore | number:'1.0-2'}}</p>
+    <button class="btn btn-default" (click)="goBack()">Cancel</button>
+    <button type="submit" class="btn btn-success" [disabled]="!kittenForm.valid">OK</button>
   </form>
 </div>
-<h1>{{kitten.name}}</h1>
-<button class="btn btn-default" (click)="goBack()">go back</button>
-<ng-template #error></ng-template>

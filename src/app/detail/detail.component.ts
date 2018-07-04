@@ -1,9 +1,10 @@
 import {Component, OnChanges, OnInit, SimpleChanges} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {KittenService} from '../kitten.service';
 import {Kitten} from '../kitten';
 import {Location} from '@angular/common';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {BattlescoreService} from '../battlescore.service';
 
 @Component({
   selector: 'app-detail',
@@ -16,29 +17,19 @@ export class DetailComponent implements OnInit, OnChanges {
 
   kittenForm: FormGroup;
 
+  battlescore: number;
+
   constructor(private route: ActivatedRoute,
+              private router: Router,
               private location: Location,
               private kittenService: KittenService,
+              private battlescoreService: BattlescoreService,
               private formBuilder: FormBuilder) {
   }
 
   ngOnInit() {
-    this.getKitten();
-    this.kittenForm = this.formBuilder.group({
-      name: ['', Validators.required],
-      speed: ['', [Validators.required, Validators.max(100), Validators.min(0)]],
-      strength: ['', [Validators.required, Validators.max(100), Validators.min(0)]],
-      cuteness: ['', [Validators.required, Validators.max(100), Validators.min(0)]]
-    });
-    this.rebuildForm();
-
-    this.kittenForm.valueChanges
-      .subscribe(val => {
-        if (this.kittenForm.valid) {
-          this.kitten.battlescore = val.speed + val.strength + val.cuteness;
-          console.log('TEST');
-        }
-      });
+    this.setupModel();
+    this.setupForm();
   }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -62,30 +53,44 @@ export class DetailComponent implements OnInit, OnChanges {
   }
 
   onSubmit() {
-    this.kittenService.update(this.prepareSaveKitten());
-  }
-
-  getKitten(): void {
-    const id = +this.route.snapshot.paramMap.get('id');
-    this.kittenService.get(id).subscribe(kitten => this.kitten = kitten);
+    this.kittenService.update(this.formToKitten());
+    this.router.navigate(['/kittens']);
   }
 
   goBack(): void {
     this.location.back();
   }
 
-  private prepareSaveKitten(): Kitten {
-    const formModel = this.kittenForm.value;
+  private setupModel(): void {
+    const id = +this.route.snapshot.paramMap.get('id');
+    this.kittenService.get(id).subscribe(kitten => this.kitten = kitten);
+    this.battlescore = this.battlescoreService.calculateBattlePoints(this.kitten);
+  }
 
-    // return new `Hero` object containing a combination of original hero value(s)
-    // and deep copies of changed form model values
+  private setupForm() {
+    this.kittenForm = this.formBuilder.group({
+      name: ['', Validators.required],
+      speed: ['', [Validators.required, Validators.max(100), Validators.min(0)]],
+      strength: ['', [Validators.required, Validators.max(100), Validators.min(0)]],
+      cuteness: ['', [Validators.required, Validators.max(100), Validators.min(0)]]
+    });
+    this.rebuildForm();
+    this.kittenForm.valueChanges
+      .subscribe(() => {
+        if (this.kittenForm.valid) {
+          this.battlescore = this.battlescoreService.calculateBattlePoints(this.formToKitten());
+        }
+      });
+  }
+
+  private formToKitten(): Kitten {
+    const formModel = this.kittenForm.value;
     return {
       id: this.kitten.id,
       name: formModel.name as string,
       speed: formModel.speed as number,
       strength: formModel.strength as number,
-      cuteness: formModel.cuteness as number,
-      battlescore: this.kitten.battlescore
+      cuteness: formModel.cuteness as number
     };
   }
 
@@ -98,7 +103,4 @@ export class DetailComponent implements OnInit, OnChanges {
     });
   }
 
-  onChanges(): void {
-
-  }
 }
