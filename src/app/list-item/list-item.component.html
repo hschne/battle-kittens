@@ -1,10 +1,9 @@
-<div (click)="view()">
-  <h1>{{kitten.name}}</h1>
-  <h2>{{kitten.cuteness}}</h2>
-  <h2>{{battlescoreService.calculateBattlePoints(kitten) | number:'1.0-2'}}</h2>
+<li class="list-group-item" (click)="view()">
+  <p>{{kitten.name}}</p>
+  <p>{{kitten.cuteness}}</p>
+  <p>{{battlescoreService.calculateBattlePoints(kitten) | number:'1.0-2'}}</p>
   <button (click)="delete()" class="btn btn-warning">Delete</button>
   <a routerLink="/detail/{{kitten.id}}">
     <button class="btn btn-default">Edit</button>
   </a>
-
-</div>
+</li>

@@ -1,12 +1,14 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <nav>
-    <a routerLink="/kittens">Kittens</a>
+<header>
+
+  <nav class="nav nav-fill">
+    <a class="navbar-brand  mb-0 h1" href="#"> Welcome to {{ title }}!</a>
+    <a routerLink="/kittens" class="nav-link">Kittens</a>
   </nav>
+</header>
+<div style="text-align:center">
+
+
   <router-outlet></router-outlet>
 </div>
-
+<footer>Footer</footer>
 
