@@ -1,5 +1,4 @@
 <h2>Kittenlist Component</h2>
 <ul *ngFor="let kitten of kittens">
-  <a routerLink="/detail/{{kitten.id}}">Name: {{kitten.name}}, Battle Score:
-    {{battlescoreService.calculateBattlePoints(kitten) | number:'1.0-2'}}</a>
+  <app-list-item [kitten]="kitten"></app-list-item>
 </ul>

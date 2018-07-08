@@ -10,6 +10,9 @@ export class BattlescoreService {
   }
 
   public calculateBattlePoints(kitten: Kitten): number {
+    if (kitten == null) {
+      return 0;
+    }
     const sum = kitten.strength * 0.90 + kitten.cuteness * 1.10 + kitten.speed;
     return sum / (3 * 10);
   }
