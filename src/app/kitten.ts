@@ -5,6 +5,14 @@ export class Kitten {
   speed: number;
   strength: number;
   cuteness: number;
+
+  constructor(id: number, name: String, speed: number, strength: number, cuteness: number) {
+    this.id = id;
+    this.name = name;
+    this.speed = speed;
+    this.strength = strength;
+    this.cuteness = cuteness;
+  }
 }
 
 export const KITTENS: Kitten[] = [

@@ -1,15 +1,22 @@
-import { TestBed, inject } from '@angular/core/testing';
-
-import { BattlescoreService } from './battlescore.service';
+import {BattlescoreService} from './battlescore.service';
+import {Kitten} from './kitten';
 
 describe('BattlescoreService', () => {
+
+  let service: BattlescoreService;
+
   beforeEach(() => {
-    TestBed.configureTestingModule({
-      providers: [BattlescoreService]
-    });
+    service = new BattlescoreService();
   });
 
-  it('should be created', inject([BattlescoreService], (service: BattlescoreService) => {
-    expect(service).toBeTruthy();
-  }));
+  it('should return correct battlescore', () => {
+    const kitten = new Kitten(1, '', 100, 100, 100);
+    expect(service.calculateBattlePoints(kitten)).toBe(10);
+  });
+
+  it('should return correct battlescore on null', () => {
+    expect(service.calculateBattlePoints(null)).toBe(0);
+  });
+
+
 });
