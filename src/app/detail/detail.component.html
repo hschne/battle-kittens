@@ -1,71 +1,79 @@
 <div class="container">
-  <h2>Edit Kitten</h2>
+  <div class="form">
+    <form (ngSubmit)="onSubmit()" [formGroup]="kittenForm">
+      <div class="row">
+        <div class="col-sm-4 image">
+          <img class="img-fluid" src="{{kitten.avatar}}">
+        </div>
+        <div class="col-sm-8">
+          <div class="form-group row">
+            <label for="name" class="col-sm-3 col-form-label">Name</label>
+            <input type="text" class="form-control col-sm-9" autocomplete="off" formControlName="name" id="name">
+            <div *ngIf="kittenName.invalid && (kittenName.dirty || kittenName.touched)"
+                 class="alert alert-danger">
+              <div *ngIf="kittenName.errors.required">
+                Name is required
+              </div>
+            </div>
+          </div>
 
-  <form (ngSubmit)="onSubmit()" [formGroup]="kittenForm">
-    <div class="form-group row">
-      <label for="name" class="col-sm-2 col-form-label">Name</label>
-      <input type="text" class="form-control col-sm-10" autocomplete="off" formControlName="name" id="name">
-      <div *ngIf="kittenName.invalid && (kittenName.dirty || kittenName.touched)"
-           class="alert alert-danger">
-        <div *ngIf="kittenName.errors.required">
-          Name is required.
+          <div class="form-group row">
+            <label for="speed" class="col-sm-3 col-form-label">Speed</label>
+            <input type="number" class="form-control col-sm-9" autocomplete="off" formControlName="speed" id="speed">
+            <div *ngIf="speed.invalid && (speed.dirty || speed.touched)"
+                 class="alert alert-danger">
+              <div *ngIf="speed.errors.required">
+                Speed is required
+              </div>
+
+              <div *ngIf="speed.errors.min || speed.errors.max">
+                Speed must be between 0 and 100
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="strength" class="col-sm-3 col-form-label">Strength</label>
+            <input type="number" class="form-control col-sm-9" autocomplete="off" formControlName="strength"
+                   id="strength">
+            <div *ngIf="strength.invalid && (strength.dirty || strength.touched)"
+                 class="alert alert-danger">
+              <div *ngIf="strength.errors.required">
+                Strength is required
+              </div>
+
+              <div *ngIf="strength.errors?.min || strength.errors?.max">
+                Strength must be between 0 and 100
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="cuteness" class="col-sm-3 col-form-label">Cuteness</label>
+            <input type="number" class="form-control col-sm-9" autocomplete="off" formControlName="cuteness"
+                   id="cuteness" name="cuteness">
+            <div *ngIf="cuteness.invalid && (cuteness.dirty || cuteness.touched)"
+                 class="alert alert-danger">
+              <div *ngIf="cuteness.errors.required">
+                Cuteness is required
+              </div>
+
+              <div *ngIf="cuteness.errors.min || cuteness.errors.max">
+                Cuteness must be between 0 and 100
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <label class="col-sm-3 col-form-label">Battlescore</label>
+            <p class="battlescore col-sm-9">{{battlescore | number:'1.0-2'}}</p>
+          </div>
         </div>
       </div>
-    </div>
-
-
-    <div class="form-group row">
-      <label for="speed" class="col-sm-2 col-form-label">Speed</label>
-      <input type="number" class="form-control col-sm-10" autocomplete="off" formControlName="speed" id="speed">
-      <div *ngIf="speed.invalid && (speed.dirty || speed.touched)"
-           class="alert alert-danger">
-        <div *ngIf="speed.errors.required">
-          Speed is required.
-        </div>
-
-        <div *ngIf="speed.errors.min || speed.errors.max">
-          Speed must be between 0 and 100.
-        </div>
+      <div class="button-bar">
+        <button class="btn btn-danger cancel" (click)="goBack()"> Cancel</button>
+        <button type="submit" class="btn btn-success" [disabled]="!kittenForm.valid">OK</button>
       </div>
-    </div>
-
-    <div class="form-group row">
-      <label for="strength" class="col-sm-2 col-form-label">Strength</label>
-      <input type="number" class="form-control col-sm-10" autocomplete="off" formControlName="strength" id="strength">
-      <div *ngIf="strength.invalid && (strength.dirty || strength.touched)"
-           class="alert alert-danger">
-        <div *ngIf="strength.errors.required">
-          Strength is required.
-        </div>
-
-        <div *ngIf="strength.errors?.min || strength.errors?.max">
-          Strength must be between 0 and 100.
-        </div>
-      </div>
-    </div>
-
-    <div class="form-group row">
-      <label for="cuteness" class="col-sm-2 col-form-label">Cuteness</label>
-      <input type="number" class="form-control col-sm-10" autocomplete="off" formControlName="cuteness" id="cuteness" name="cuteness">
-      <div *ngIf="cuteness.invalid && (cuteness.dirty || cuteness.touched)"
-           class="alert alert-danger">
-        <div *ngIf="cuteness.errors.required">
-          Cuteness is required.
-        </div>
-
-        <div *ngIf="cuteness.errors.min || cuteness.errors.max">
-          Cuteness must be between 0 and 100.
-        </div>
-      </div>
-    </div>
-
-    <div class="row">
-      <label class="col-sm-2 col-form-label">Battlescore</label>
-      <p class="battlescore col-sm-10">{{battlescore | number:'1.0-2'}}</p>
-    </div>
-    <div class="button-bar">
-      <button class="btn btn-danger cancel"> Cancel</button>
-      <button type="submit" class="btn btn-success ok" [disabled]="!kittenForm.valid">OK</button>
-    </div>
-  </form>
+    </form>
+  </div>
 </div>
+

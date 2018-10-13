@@ -90,7 +90,8 @@ export class DetailComponent implements OnInit, OnChanges {
       name: formModel.name as string,
       speed: formModel.speed as number,
       strength: formModel.strength as number,
-      cuteness: formModel.cuteness as number
+      cuteness: formModel.cuteness as number,
+      avatar: this.kitten.avatar
     };
   }
 

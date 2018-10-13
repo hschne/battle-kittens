@@ -19,21 +19,50 @@
   }
 }
 
+.github-corner svg {
+  fill: $pink;
+  color: white;
+  path {
+
+    text-shadow: 0 0 1px #fff, 0 0 5px #fff, 0 0 5px #fff, 0 0 10px #ff00de, 0 0 15px #ff00de, 0 0 20px #ff00de, 0 0 25px #ff00de, 0 0 34px #ff00de;
+  }
+}
+
 header {
   margin-bottom: 2em;
 }
 
+footer {
+  span {
+    color: white;
+  }
 
-.nav-link{
+  p {
+    color: $blue;
+    padding: 0;
+    margin: 0;
+  }
+
+
+  a {
+    color: white;
+  }
+
+}
+
+
+
+
+.nav-link {
   font-family: arcade, serif;
   font-size: 2em;
   color: $blue
 }
 
-
 a {
-  &:hover {
 
+  &:hover {
     text-decoration: underline;
   }
 }
+
