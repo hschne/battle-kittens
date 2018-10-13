@@ -1,7 +1,82 @@
+@import "~src/assets/scss/variables";
+
 .ng-valid[required], .ng-valid.required  {
   border-left: 5px solid #42A948; /* green */
 }
 
 .ng-invalid:not(form)  {
-  border-left: 5px solid #a94442; /* red */
+  border-left: 5px solid $pink; /* red */
 }
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.row {
+  width: 100%;
+}
+
+h2 {
+  color: white;
+  margin-bottom: 20px;
+}
+
+label {
+  color: white;
+  font-size: 1.3em;
+}
+
+p {
+  font-size: 1.3em;
+}
+
+.button-bar {
+  width: 100%;
+
+  margin-top: 1em;
+  display: flex;
+  justify-content: space-between;
+
+  button {
+    background: none;
+    border: none;
+    width: 90px;
+    margin: 20px 10px 0 10px;
+    font-size: 1.3em;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.battlescore {
+  padding-top: 5px;
+  padding-left: 0.75rem;
+  width: 100%;
+}
+
+
+input {
+  background-color: $dark;
+  border: none !important;
+  border-bottom: 2px solid $blue !important;
+  font-size: 1.3em;
+  color: white !important;
+  border-radius: 0;
+  &:focus, &:active {
+    background-color: $dark;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    border-bottom: 5px solid $blue;
+  }
+
+}
+
+
+

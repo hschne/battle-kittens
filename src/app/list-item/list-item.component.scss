@@ -1,12 +1,29 @@
-.w-10 {
-  width: 10% !important;
-}
+@import "~src/assets/scss/variables";
 
 
-.icon-box i {
-  margin-left: 20px;
+.button-bar {
+  width: 15% !important;
+  display: flex;
   cursor: pointer;
-  color: blue;
+  justify-content: space-between;
+
+  a {
+    color: white;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
 }
 
-
+.list-group-item {
+  span {
+    color: white;
+  }
+  background-color: $dark;
+  border: none;
+  border-bottom: 2px solid $blue;
+  font-size: 1.4em;
+  height: 3em;
+}

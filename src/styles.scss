@@ -1,17 +1,46 @@
 /* You can add global styles to this file, and also import other style files */
-@import "~bootstrap/dist/css/bootstrap.css";
+@import "~bootstrap/scss/bootstrap.scss";
 @import "~font-awesome/css/font-awesome.css";
+
+@import "assets/scss/variables";
+
+$primary: $pink;
+$default: $pink;
+$body-bg: $dark;
+
+$danger: $pink !important;
+$success: $blue;
+
+
+body {
+  background: $body-bg;
+}
 
 @font-face {
   font-family: 'metal';
   src: url('assets/metal.ttf');
 }
 
-.wow {
-  font-family: metal;
+@font-face {
+  font-family: 'arcade';
+  src: url('assets/arcade_classic.ttf');
 }
 
-body {
-  background-color: #222222;
-
+html *
+{
+  font-family: arcade, serif;
+  color: white;
 }
+
+a {
+  &:hover {
+    color: white;
+    text-decoration: underline;
+  }
+}
+
+
+@mixin tab-focus() {
+  outline: none !important;
+}
+

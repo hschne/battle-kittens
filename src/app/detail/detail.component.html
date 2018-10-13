@@ -1,9 +1,10 @@
 <div class="container">
   <h2>Edit Kitten</h2>
+
   <form (ngSubmit)="onSubmit()" [formGroup]="kittenForm">
-    <div class="form-group">
-      <label for="name">Name</label>
-      <input type="text" class="form-control" formControlName="name" id="name">
+    <div class="form-group row">
+      <label for="name" class="col-sm-2 col-form-label">Name</label>
+      <input type="text" class="form-control col-sm-10" autocomplete="off" formControlName="name" id="name">
       <div *ngIf="kittenName.invalid && (kittenName.dirty || kittenName.touched)"
            class="alert alert-danger">
         <div *ngIf="kittenName.errors.required">
@@ -13,9 +14,9 @@
     </div>
 
 
-    <div class="form-group">
-      <label for="speed">Speed</label>
-      <input type="number" class="form-control" formControlName="speed" id="speed">
+    <div class="form-group row">
+      <label for="speed" class="col-sm-2 col-form-label">Speed</label>
+      <input type="number" class="form-control col-sm-10" autocomplete="off" formControlName="speed" id="speed">
       <div *ngIf="speed.invalid && (speed.dirty || speed.touched)"
            class="alert alert-danger">
         <div *ngIf="speed.errors.required">
@@ -28,9 +29,9 @@
       </div>
     </div>
 
-    <div class="form-group">
-      <label for="strength">Strength</label>
-      <input type="number" class="form-control" formControlName="strength" id="strength">
+    <div class="form-group row">
+      <label for="strength" class="col-sm-2 col-form-label">Strength</label>
+      <input type="number" class="form-control col-sm-10" autocomplete="off" formControlName="strength" id="strength">
       <div *ngIf="strength.invalid && (strength.dirty || strength.touched)"
            class="alert alert-danger">
         <div *ngIf="strength.errors.required">
@@ -43,9 +44,9 @@
       </div>
     </div>
 
-    <div class="form-group">
-      <label for="cuteness">Cuteness</label>
-      <input type="number" class="form-control" formControlName="cuteness" id="cuteness" name="cuteness">
+    <div class="form-group row">
+      <label for="cuteness" class="col-sm-2 col-form-label">Cuteness</label>
+      <input type="number" class="form-control col-sm-10" autocomplete="off" formControlName="cuteness" id="cuteness" name="cuteness">
       <div *ngIf="cuteness.invalid && (cuteness.dirty || cuteness.touched)"
            class="alert alert-danger">
         <div *ngIf="cuteness.errors.required">
@@ -57,8 +58,14 @@
         </div>
       </div>
     </div>
-    <p>Battlescore: {{battlescore | number:'1.0-2'}}</p>
-    <button class="btn btn-default" (click)="goBack()">Cancel</button>
-    <button type="submit" class="btn btn-success" [disabled]="!kittenForm.valid">OK</button>
+
+    <div class="row">
+      <label class="col-sm-2 col-form-label">Battlescore</label>
+      <p class="battlescore col-sm-10">{{battlescore | number:'1.0-2'}}</p>
+    </div>
+    <div class="button-bar">
+      <button class="btn btn-danger cancel"> Cancel</button>
+      <button type="submit" class="btn btn-success ok" [disabled]="!kittenForm.valid">OK</button>
+    </div>
   </form>
 </div>

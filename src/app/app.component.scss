@@ -1,55 +1,39 @@
-p {
-  font-family: metal, serif;
+@import "~src/assets/scss/variables";
+
+.header-text {
+  font-family: metal, serif !important;
   text-align: center;
   font-size: 7em;
-  margin: 20px 0 20px 0;
-}
-
-a {
+  margin: 30px 0 30px 0;
   text-decoration: none;
   -webkit-transition: all 0.5s;
   -moz-transition: all 0.5s;
   transition: all 0.5s;
-}
-
-p a {
-  color: #BA01FF;
-}
-
-p a {
   color: #ffffff;
-  -webkit-animation: neon6 1.5s ease-in-out infinite alternate;
-  -moz-animation: neon6 1.5s ease-in-out infinite alternate;
-  animation: neon6 1.5s ease-in-out infinite alternate;
-}
+  cursor: pointer;
+  text-shadow: 0 0 2px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #ff00de, 0 0 35px #ff00de, 0 0 40px #ff00de, 0 0 50px #ff00de, 0 0 75px #ff00de;
 
-p a:hover {
-  color: #ffffff;
-}
-
-@-webkit-keyframes neon6 {
-  from {
+  &:hover {
+    color: #ffffff;
     text-shadow: 0 0 5px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #ff00de, 0 0 70px #ff00de, 0 0 80px #ff00de, 0 0 100px #ff00de, 0 0 150px #ff00de;
   }
-  to {
-    text-shadow: 0 0 2px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #ff00de, 0 0 35px #ff00de, 0 0 40px #ff00de, 0 0 50px #ff00de, 0 0 75px #ff00de;
-  }
 }
 
-@-moz-keyframes neon6 {
-  from {
-    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #ff00de, 0 0 70px #ff00de, 0 0 80px #ff00de, 0 0 100px #ff00de, 0 0 150px #ff00de;
-  }
-  to {
-    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #ff00de, 0 0 35px #ff00de, 0 0 40px #ff00de, 0 0 50px #ff00de, 0 0 75px #ff00de;
-  }
+header {
+  margin-bottom: 2em;
 }
 
-@keyframes neon6 {
-  from {
-    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #ff00de, 0 0 70px #ff00de, 0 0 80px #ff00de, 0 0 100px #ff00de, 0 0 150px #ff00de;
-  }
-  to {
-    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #ff00de, 0 0 35px #ff00de, 0 0 40px #ff00de, 0 0 50px #ff00de, 0 0 75px #ff00de;
+
+.nav-link{
+  font-family: arcade, serif;
+  font-size: 2em;
+  color: $blue
+}
+
+
+a {
+  &:hover {
+
+    text-decoration: underline;
   }
 }

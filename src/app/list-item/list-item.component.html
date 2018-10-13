@@ -1,11 +1,13 @@
 <li class="list-group-item  d-flex justify-content-between align-items-center" (click)="view()">
   <span class="w-25">{{kitten.name}}</span>
+  <span class="w-10">{{kitten.speed}}</span>
+  <span class="w-10">{{kitten.strength}}</span>
   <span class="w-10">{{kitten.cuteness}}</span>
   <span class="w-10">{{battlescoreService.calculateBattlePoints(kitten) |
   number:'1.0-2'}}</span>
-  <div class="icon-box w-25 justify-content-end d-flex">
-    <a href="/detail/{{kitten.id}}"><i class="fa fa-pencil fa-2x"></i></a>
-    <a (click)="delete()"><i class="fa fa-remove fa-2x"></i></a>
+  <div class="button-bar">
+    <a href="/detail/{{kitten.id}}">Edit</a>
+    <a (click)="delete()">Delete</a>
   </div>
 
 </li>
