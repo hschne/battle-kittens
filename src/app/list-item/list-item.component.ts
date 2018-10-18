@@ -11,8 +11,7 @@ import {BattlescoreService} from '../battlescore.service';
 export class ListItemComponent implements OnInit {
 
   @Input()
-  kitten: Kitten;
-
+  public kitten: Kitten;
 
   constructor(private kittenService: KittenService,
               private battlescoreService: BattlescoreService) {
@@ -22,7 +21,6 @@ export class ListItemComponent implements OnInit {
   }
 
   view() {
-    console.log('Whoopsi!');
   }
 
   delete() {

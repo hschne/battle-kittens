@@ -1,16 +1,28 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { ListComponent } from './list.component';
+import {ListComponent} from './list.component';
+import {KittenService} from '../kitten.service';
+import {of} from 'rxjs';
+import {ListItemComponent} from '../list-item/list-item.component';
 
 describe('ListComponent', () => {
   let component: ListComponent;
   let fixture: ComponentFixture<ListComponent>;
 
+  const kittenServiceStub = {
+    list() {
+      const kittens = [];
+      return of(kittens);
+    }
+  };
+
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ListComponent ]
+      declarations: [ListComponent,
+        ListItemComponent],
+      providers: [{provide: KittenService, useValue: kittenServiceStub}]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

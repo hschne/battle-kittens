@@ -1,8 +1,6 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {Kitten} from '../kitten';
 import {KittenService} from '../kitten.service';
-import {BattlescoreService} from '../battlescore.service';
-import {ListItemComponent} from '../list-item/list-item.component';
 
 @Component({
   selector: 'app-list',

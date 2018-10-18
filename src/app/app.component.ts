@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Kitten} from './kitten';
 import {KittenService} from './kitten.service';
-import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-root',

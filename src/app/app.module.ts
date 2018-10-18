@@ -6,8 +6,8 @@ import {DetailComponent} from './detail/detail.component';
 import {AppRoutingModule} from './app-routing.module';
 import {ListComponent} from './list/list.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { ListItemComponent } from './list-item/list-item.component';
+import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
+import {ListItemComponent} from './list-item/list-item.component';
 
 @NgModule({
   declarations: [
