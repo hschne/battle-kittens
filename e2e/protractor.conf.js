@@ -11,9 +11,11 @@ exports.config = {
   capabilities: {
     'browserName': 'chrome'
   },
-  directConnect: true,
+
+  directConnect: false,
   baseUrl: 'http://localhost:4200/',
   framework: 'jasmine',
+  highlightDelay: 1500,
   jasmineNodeOpts: {
     showColors: true,
     defaultTimeoutInterval: 30000,

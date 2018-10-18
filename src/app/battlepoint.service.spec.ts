@@ -17,6 +17,4 @@ describe('BattlescoreService', () => {
   it('should return correct battlescore on null', () => {
     expect(service.calculateBattlePoints(null)).toBe(0);
   });
-
-
 });
