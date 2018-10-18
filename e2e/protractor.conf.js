@@ -15,7 +15,7 @@ exports.config = {
   directConnect: false,
   baseUrl: 'http://localhost:4200/',
   framework: 'jasmine',
-  highlightDelay: 1500,
+  highlightDelay: 2000,
   jasmineNodeOpts: {
     showColors: true,
     defaultTimeoutInterval: 30000,
