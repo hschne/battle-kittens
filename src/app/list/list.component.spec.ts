@@ -4,6 +4,7 @@ import {ListComponent} from './list.component';
 import {KittenService} from '../kitten.service';
 import {of} from 'rxjs';
 import {ListItemComponent} from '../list-item/list-item.component';
+import {RouterTestingModule} from '@angular/router/testing';
 
 describe('ListComponent', () => {
   let component: ListComponent;
@@ -20,6 +21,7 @@ describe('ListComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ListComponent,
         ListItemComponent],
+      imports: [ RouterTestingModule ],
       providers: [{provide: KittenService, useValue: kittenServiceStub}]
     })
       .compileComponents();

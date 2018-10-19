@@ -1,9 +1,10 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { ListItemComponent } from './list-item.component';
+import {ListItemComponent} from './list-item.component';
 import {KittenService} from '../kitten.service';
 import {Kitten} from '../kitten';
 import {of} from 'rxjs';
+import {RouterTestingModule} from '@angular/router/testing';
 
 describe('ListItemComponent', () => {
   let component: ListItemComponent;
@@ -12,16 +13,17 @@ describe('ListItemComponent', () => {
   const kittenServiceStub = {
     get() {
       const todos = new Kitten();
-      return of( todos );
+      return of(todos);
     }
   };
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ListItemComponent ],
+      declarations: [ListItemComponent],
+      imports: [RouterTestingModule],
       providers: [{provide: KittenService, useValue: kittenServiceStub}]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
