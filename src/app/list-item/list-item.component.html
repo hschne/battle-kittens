@@ -6,7 +6,7 @@
   <span class="w-10">{{battlescoreService.calculateBattlePoints(kitten) |
   number:'1.0-2'}}</span>
   <div class="button-bar">
-    <a href="/detail/{{kitten.id}}">Edit</a>
+    <a routerLink="/detail/{{kitten.id}}">Edit</a>
     <a (click)="delete()">Delete</a>
   </div>
 

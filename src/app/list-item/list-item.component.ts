@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {Kitten} from '../kitten';
 import {KittenService} from '../kitten.service';
 import {BattlescoreService} from '../battlescore.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-list-item',
@@ -14,7 +15,7 @@ export class ListItemComponent implements OnInit {
   public kitten: Kitten;
 
   constructor(private kittenService: KittenService,
-              private battlescoreService: BattlescoreService) {
+              public battlescoreService: BattlescoreService) {
   }
 
   ngOnInit() {
